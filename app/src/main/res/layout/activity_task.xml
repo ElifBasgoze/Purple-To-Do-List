@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TaskActivity"
+    tools:context=".uı.activity.TaskActivity"
     android:background="@color/colorPrimary">
 
 
@@ -28,6 +28,7 @@
             android:padding="20dp">
 
             <EditText
+                android:id="@+id/title_edt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
@@ -36,6 +37,7 @@
                 android:paddingLeft="10dp"></EditText>
 
             <EditText
+                android:id="@+id/content_edt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint=" Content"
@@ -43,6 +45,7 @@
                 android:paddingLeft="10dp"></EditText>
 
             <EditText
+                android:id="@+id/deadline_edt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint=" Deadline"
@@ -51,6 +54,7 @@
                 ></EditText>
 
             <Button
+                android:id="@+id/add_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
