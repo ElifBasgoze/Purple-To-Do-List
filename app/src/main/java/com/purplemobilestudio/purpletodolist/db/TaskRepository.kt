@@ -42,7 +42,7 @@ class TaskRepository(var context: Context)
 
     fun insertTask(task: Task) :Int
     {
-        var db=mDbHelper.writableDatabase
+        val db=mDbHelper.writableDatabase
 
         val values=ContentValues()
         values.apply()
@@ -59,13 +59,25 @@ class TaskRepository(var context: Context)
 
     }
 
-    fun deleteTask()
+    fun deleteTask(taskId: Int)
     {
-
+       val db=mDbHelper.writableDatabase
+       db.delete(DbHelper.TABLE_NAME,DbHelper.KEY_ID + "=?", arrayOf(taskId.toString()))
+        db.close()
     }
 
-    fun updateTask()
+    fun updateTask(task: Task):Int
     {
+       val db=mDbHelper.writableDatabase
+        val values=ContentValues()
+        values.apply {
+            put(DbHelper.KEY_TITLE,task.title)
+            put(DbHelper.KEY_CONTENT,task.content)
+            put(DbHelper.KEY_DEADLINE,task.deadline)
+        }
 
+        val id:Int=db.update(DbHelper.TABLE_NAME,values,DbHelper.KEY_ID+"=?", arrayOf(task.id.toString()))
+
+        return id
     }
 }
